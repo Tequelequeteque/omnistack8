@@ -9,12 +9,24 @@ import logo from '../assets/logo.png';
 import dislike from '../assets/dislike.png';
 import like from '../assets/like.png';
 import itsamatch from '../assets/itsamatch.png';
+import { interfaceDeclaration } from '@babel/types';
 
 
 function Main({ navigation }) {
     const id = navigation.getParam('user');
     const [users, setUsers] = useState([]);
-    const [matchDev, setMatchDev] = useState(null);
+    const [matchDev, setMatchDev] = useState(
+        // null
+        {
+            "_id": "5d4f6406af9d2b0e50f73b0d",
+            "likes": ["5d4f63f9af9d2b0e50f73b0c"],
+            "dislikes": [],
+            "name": "Peixe Babel",
+            "user": "peixebabel",
+            "bio": "Divulgadora científica no Youtube",
+            "avatar": "https://avatars0.githubusercontent.com/u/22198915?v=4",
+        }
+    );
 
     useEffect(() => {
         async function loadUsers() {
@@ -171,6 +183,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         marginBottom: 30,
+        zIndex: 0
     },
     button: {
         width: 50,
@@ -194,7 +207,8 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         backgroundColor: 'rgba(0,0,0,0.8)',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: Number.MAX_SAFE_INTEGER
     },
     matchImage: {
         height: 80,
