@@ -15,18 +15,7 @@ import { interfaceDeclaration } from '@babel/types';
 function Main({ navigation }) {
     const id = navigation.getParam('user');
     const [users, setUsers] = useState([]);
-    const [matchDev, setMatchDev] = useState(
-        // null
-        {
-            "_id": "5d4f6406af9d2b0e50f73b0d",
-            "likes": ["5d4f63f9af9d2b0e50f73b0c"],
-            "dislikes": [],
-            "name": "Peixe Babel",
-            "user": "peixebabel",
-            "bio": "Divulgadora científica no Youtube",
-            "avatar": "https://avatars0.githubusercontent.com/u/22198915?v=4",
-        }
-    );
+    const [matchDev, setMatchDev] = useState(null);
 
     useEffect(() => {
         async function loadUsers() {
